@@ -44,6 +44,6 @@ jobs:
           platforms: linux/amd64,linux/386,linux/arm64,linux/arm/v7
           push: true
           tags: |
-            bloodstar/v2fly-privoxy:${{ steps.set-version.outputs.version }}
+            bloodstar/v2fly-privoxy:stable-${{ steps.set-version.outputs.version }}
             bloodstar/v2fly-privoxy:latest
 
