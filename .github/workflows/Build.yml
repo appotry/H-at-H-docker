@@ -34,5 +34,5 @@ jobs:
           push: true
           tags: bloodstar/hah:latest
           tags: |
-                  bloodstar/hah:latest
-                  bloodstar/hah:${{ steps.prep.outputs.tags }}
+            bloodstar/hah:${{ steps.prep.outputs.tags }}
+            bloodstar/hah:latest
