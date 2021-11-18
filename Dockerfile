@@ -21,6 +21,12 @@ FROM openjdk:8-jre-alpine AS release
 
 ENV HatH_ARGS --cache-dir=/hath/data/cache --data-dir=/hath/data/data --download-dir=/hath/download --log-dir=/hath/data/log --temp-dir=/hath/data/temp
 
+ENV TZ Asia/Shanghai
+
+RUN apk --no-cache add tzdata && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && apk del tzdata
+
 COPY --from=builder /hath /hath
 COPY --from=builder /builder/start.sh /hath/start.sh
 WORKDIR /hath
